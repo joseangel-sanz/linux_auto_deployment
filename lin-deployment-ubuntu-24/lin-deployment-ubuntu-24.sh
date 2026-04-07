@@ -35,8 +35,8 @@ sleep 10
 
 # Bash Menu
 
-PS3= "[Select an option from the list:]"
-options=("1: New full deployment" "2: Install Security tools" "3: Secure Boot Check " "4: Add users" "5: Quit ")
+PS3="[Select an option from the list:]"
+options=("1: New full deployment" "2: Install Security tools" "3: Secure Boot Check" "4: Add users" "5: Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -125,6 +125,7 @@ do
         break;;
 
         "5: Quit") break;;
+
         *) echo "Invalid option";;
     esac
 done

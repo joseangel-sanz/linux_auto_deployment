@@ -36,11 +36,11 @@ sleep 10
 # Bash Menu
 
 PS3="[Select an option from the list:]"
-options=("1: New full deployment" "2: Install Security tools" "3: Secure Boot Check" "4: Add users" "5: Quit")
+options=("New full deployment" "Install Security tools" "Secure Boot Check" "Add users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "1: New full deployment")
+        "New full deployment")
 
         #====================================================================================
         # Intalling certs
@@ -94,7 +94,7 @@ do
 
         break;;
 
-        "2: Install Security tools")
+        "Install Security tools")
         echo "**** Intalling security tools ****"
         echo
         source "$SCRIPT_DIR/defaults/install_security_tools.sh"
@@ -103,20 +103,19 @@ do
 
         break;;
 
-        "3: Secure Boot Check")
+        "Secure Boot Check")
         #====================================================================================
         # Secure boot
         #====================================================================================
 
         echo -e "**** Secure Boot Check ****\n"
         sleep 2
-        mokutil --sb-state = $result
-        echo $result
+        result=$(mokutil --sb-state)
+        echo "$result"
         echo
-        sleep 1
-        break;;
+        sleep 1;;
 
-        "4: Add users")
+        "Add users")
         echo "**** Adding users ****"
         echo
         source "$SCRIPT_DIR/defaults/users.sh"
@@ -124,7 +123,7 @@ do
         sleep 3
         break;;
 
-        "5: Quit") break;;
+        "Quit") break;;
 
         *) echo "Invalid option";;
     esac

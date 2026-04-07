@@ -1,7 +1,7 @@
 #!/bin/bash
 # Bash Menu
 
-PS3= "[Select an option from the list:]"
+PS3="[Select an option from the list:]"
 options=("1: Admin user" "2: Normal user" "3: Quit")
 select opt in "${options[@]}"
 do

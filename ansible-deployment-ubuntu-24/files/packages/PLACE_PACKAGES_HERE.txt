@@ -1,6 +1,0 @@
-Place the following binary packages in this directory before running the playbook:
-
-  - falcon-sensor*.deb       (CrowdStrike Falcon Sensor)
-  - QualysCloudAgent*.deb    (Qualys Cloud Agent)
-
-These files are not included in the repository.

@@ -8,19 +8,19 @@ do
     case $opt in
         "1: NoProxy")
             echo "**** Trendmicro install/configured No Proxy ****"
-            source /root/lin-deployment-ubuntu-24/defaults/security-tooling/LinuxAgentDeploymentScript_NoProxy.sh
+            source ./LinuxAgentDeploymentScript_NoProxy.sh
             echo Completed
             echo
             break;;
         "2: NRAProxy")
             echo "**** Trendmicro install/configured NRA Proxy ****"
-            source /root/lin-deployment-ubuntu-24/defaults/security-tooling/LinuxAgentDeploymentScript_NRAProxy.sh
+            source ./LinuxAgentDeploymentScript_NRAProxy.sh
             echo Completed
             echo
             break;;
         "3: Zscaler Proxy")
             echo "**** Trendmicro install/configured Zscaler Proxy ****"
-            source /root/lin-deployment-ubuntu-24/defaults/security-tooling/LinuxAgentDeploymentScript_ZscalerProxy.sh
+            source ./LinuxAgentDeploymentScript_ZscalerProxy.sh
             echo Completed
             echo
             break;;

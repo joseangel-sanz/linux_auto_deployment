@@ -8,7 +8,7 @@ echo -e "**** Secure Boot Check ****\n"
 sleep 2
 sudo apt-get install mokutil
 sleep 2
-mokutil --sb-state = $result
+result=$(mokutil --sb-state)
 echo $result
 echo
 sleep 1

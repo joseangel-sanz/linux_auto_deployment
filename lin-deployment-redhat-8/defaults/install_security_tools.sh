@@ -8,26 +8,26 @@ select opt in "${options[@]}"
 do
     case $opt in
         "1: All")
-            source /root/lin-deployment-redhat-8/defaults/security-tooling/ds-agent.sh
+            source ./security-tooling/ds-agent.sh
             sleep 3
-            source /root/lin-deployment-redhat-8/defaults/security-tooling/falcon-sensor.sh
+            source ./security-tooling/falcon-sensor.sh
             sleep 3
-            source /root/lin-deployment-redhat-8/defaults/security-tooling/qualys-cloud-agent.sh
+            source ./security-tooling/qualys-cloud-agent.sh
             sleep 3
             break;;
 
         "2: ds-agent")
-            source /root/lin-deployment-redhat-8/defaults/security-tooling/ds-agent.sh
+            source ./security-tooling/ds-agent.sh
             sleep 3
             break;;
 
         "3: falcon-sensor")
-            source /root/lin-deployment-redhat-8/defaults/security-tooling/falcon-sensor.sh
+            source ./security-tooling/falcon-sensor.sh
             sleep 3
             break;;
 
         "4: qualys-cloud-agent")
-            source /root/lin-deployment-redhat-8/defaults/security-tooling/qualys-cloud-agent.sh
+            source ./security-tooling/qualys-cloud-agent.sh
             sleep 3
             break;;
 

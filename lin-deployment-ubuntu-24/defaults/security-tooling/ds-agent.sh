@@ -4,29 +4,29 @@
 DS_AGENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 PS3="[Select an option from the list:]"
-options=("1: NoProxy" "2: NRAProxy" "3: Zscaler Proxy" "4: Quit")
+options=("NoProxy" "NRAProxy" "Zscaler Proxy" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "1: NoProxy")
+        "NoProxy")
             echo "**** Trendmicro install/configured No Proxy ****"
             source "$DS_AGENT_DIR/LinuxAgentDeploymentScript_NoProxy.sh"
             echo Completed
             echo
             break;;
-        "2: NRAProxy")
+        "NRAProxy")
             echo "**** Trendmicro install/configured NRA Proxy ****"
             source "$DS_AGENT_DIR/LinuxAgentDeploymentScript_NRAProxy.sh"
             echo Completed
             echo
             break;;
-        "3: Zscaler Proxy")
+        "Zscaler Proxy")
             echo "**** Trendmicro install/configured Zscaler Proxy ****"
             source "$DS_AGENT_DIR/LinuxAgentDeploymentScript_ZscalerProxy.sh"
             echo Completed
             echo
             break;;
-        "4: Quit") break;;
+        "Quit") break;;
         *) echo "Invalid option";;
     esac
 done

@@ -36,7 +36,7 @@ sleep 10
 # Bash Menu
 
 PS3="[Select an option from the list:]"
-options=("New full deployment" "Install Security tools" "Secure Boot Check" "Add users" "Quit")
+options=("New full deployment" "Install Security tools" "Secure Boot Check" "Add users" "Check security tools" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -122,6 +122,13 @@ do
         echo -e "Done\n"
         sleep 3
         break;;
+
+        "Check security tools")
+        echo "**** Checking security tools ****"
+        echo
+        source "$SCRIPT_DIR/other_tools/securitytooling_check.sh"
+        echo -e "Done\n"
+        sleep 3;;
 
         "Quit") break;;
 

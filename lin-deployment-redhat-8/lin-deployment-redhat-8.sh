@@ -14,9 +14,11 @@
 # chmod +x lin-deployment-redhat-8.sh
 # sed -i -e 's/\r$//' lin-deployment-redhat-8.sh
 
-# Give permission to the entire directory
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-chmod -R 777 /root/lin-deployment-redhat-8
+# Give permission to the entire directory
+chmod -R 777 "$SCRIPT_DIR"
 
 echo  "--------------------------------------------------------------------------------------------------------------"
 echo  "APMT - APMT Infra L3 Team (RIO Team))- Script v1.0 : RHEL8 Linux Preparation"
@@ -50,7 +52,7 @@ do
     
         echo "**** Intalling certs ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/install_certs.sh
+        source "$SCRIPT_DIR/defaults/install_certs.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -60,7 +62,7 @@ do
 
         echo "**** Intalling pre-requisites ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/other.sh
+        source "$SCRIPT_DIR/defaults/other.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -70,7 +72,7 @@ do
     
         echo "**** Intalling security tools ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/install_security_tools.sh
+        source "$SCRIPT_DIR/defaults/install_security_tools.sh"
         echo -e "Done\n"
         sleep 3
         
@@ -80,7 +82,7 @@ do
 
         echo "**** Configuring NTP ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/ntp.sh
+        source "$SCRIPT_DIR/defaults/ntp.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -90,7 +92,7 @@ do
 
         echo "**** Configuring banners ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/banners.sh
+        source "$SCRIPT_DIR/defaults/banners.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -102,7 +104,7 @@ do
         #====================================================================================
         echo "**** Subscribing server ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/subscribe.sh
+        source "$SCRIPT_DIR/defaults/subscribe.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -111,7 +113,7 @@ do
         "3: Install Security tools")
         echo "**** Intalling security tools ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/install_security_tools.sh
+        source "$SCRIPT_DIR/defaults/install_security_tools.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -133,7 +135,7 @@ do
         "5: Add users")
         echo "**** Adding users ****"
         echo
-        source /root/lin-deployment-redhat-8/defaults/users.sh
+        source "$SCRIPT_DIR/defaults/users.sh"
         echo -e "Done\n"
         sleep 3
         break;;

@@ -10,12 +10,14 @@
 # Licenses: Intellectual property of Jose Angel Sanz Villar. All rights reserved
 #==============================================================================
 
-# Give permission to the entire directory
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-chmod -R 777 /root/lin-deployment-ubuntu-24
+# Give permission to the entire directory
+chmod -R 777 "$SCRIPT_DIR"
 
 echo  "--------------------------------------------------------------------------------------------------------------"
-echo  "APMT - APMT HUBs Service Delivery team- Script v1.0 : Ubuntu 24 Deployment"
+echo  "APMT - APMT HUBs Service Delivery team - Script v1.0 : Ubuntu 24 Deployment"
 echo  "--------------------------------------------------------------------------------------------------------------"
 echo
 echo  "This script will prepare the standard Maersk/APMT OS Linux config"
@@ -34,7 +36,7 @@ sleep 10
 # Bash Menu
 
 PS3= "[Select an option from the list:]"
-options=("1: New full deployment" "2: Subscribe servesr" "3: Install Security tools" "4: Secure Boot Check" "5: Add users" "6: Quit")
+options=("1: New full deployment" "2: Install Security tools" "3: Secure Boot Check " "4: Add users" "5:Quit ")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -46,7 +48,7 @@ do
     
         echo "**** Intalling certs ****"
         echo
-        source /root/lin-deployment-ubuntu-24/defaults/install_certs.sh
+        source "$SCRIPT_DIR/defaults/install_certs.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -56,7 +58,7 @@ do
 
         echo "**** Intalling pre-requisites ****"
         echo
-        source /root/lin-deployment-ubuntu-24/defaults/other.sh
+        source "$SCRIPT_DIR/defaults/other.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -66,7 +68,7 @@ do
     
         echo "**** Intalling security tools ****"
         echo
-        source /root/lin-deployment-ubuntu-24/defaults/install_security_tools.sh
+        source "$SCRIPT_DIR/defaults/install_security_tools.sh"
         echo -e "Done\n"
         sleep 3
         
@@ -76,7 +78,7 @@ do
 
         echo "**** Configuring NTP ****"
         echo
-        source /root/lin-deployment-ubuntu-24/defaults/ntp.sh
+        source "$SCRIPT_DIR/defaults/ntp.sh"
         echo -e "Done\n"
         sleep 3
 
@@ -86,34 +88,22 @@ do
 
         echo "**** Configuring banners ****"
         echo
-        source /root/lin-deployment-ubuntu-24/defaults/banners.sh
+        source "$SCRIPT_DIR/defaults/banners.sh"
         echo -e "Done\n"
         sleep 3
 
         break;;
 
-        "2: Subscribe servesr")
-        #====================================================================================
-        # Subscribe
-        #====================================================================================
-        echo "**** Subscribing server ****"
-        echo
-        source /root/lin-deployment-ubuntu-24/defaults/subscribe.sh
-        echo -e "Done\n"
-        sleep 3
-
-        break;;
-
-        "3: Install Security tools")
+        "2: Install Security tools")
         echo "**** Intalling security tools ****"
         echo
-        source /root/lin-deployment-ubuntu-24/defaults/install_security_tools.sh
+        source "$SCRIPT_DIR/defaults/install_security_tools.sh"
         echo -e "Done\n"
         sleep 3
 
         break;;
 
-        "4: Secure Boot Check")
+        "3: Secure Boot Check")
         #====================================================================================
         # Secure boot
         #====================================================================================
@@ -126,15 +116,15 @@ do
         sleep 1
         break;;
 
-        "5: Add users")
+        "4: Add users")
         echo "**** Adding users ****"
         echo
-        source /root/lin-deployment-ubuntu-24/defaults/users.sh
+        source "$SCRIPT_DIR/defaults/users.sh"
         echo -e "Done\n"
         sleep 3
         break;;
 
-        "6: Quit") break;;
+        "5: Quit") break;;
         *) echo "Invalid option";;
     esac
 done

@@ -2,7 +2,7 @@
 
 # Bash Menu
 
-PS3= "[Select an option from the list:]"
+PS3="[Select an option from the list:]"
 options=("1: Production" "2: UAT" "3: Quit")
 select opt in "${options[@]}"
 do
